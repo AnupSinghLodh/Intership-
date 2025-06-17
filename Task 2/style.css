@@ -1,0 +1,218 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Fullscreen canvas background */
+#bg-canvas-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+}
+
+/* Make sure content sits above canvas */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+  position: relative;
+  overflow-x: hidden;
+  color: #ffffff;
+  scroll-behavior: smooth;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.background-shapes {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0; left: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.2;
+  animation: float 20s ease-in-out infinite;
+  mix-blend-mode: screen;
+}
+
+.shape1 {
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(circle, #00f7ff, #1a2a6c);
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.shape2 {
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(circle, #f72585, #7209b7);
+  top: 60%;
+  left: 70%;
+  animation-delay: 5s;
+}
+
+.shape3 {
+  width: 250px;
+  height: 250px;
+  background: linear-gradient(circle, #fee440, #ff6f00);
+  top: 30%;
+  left: 50%;
+  animation-delay: 10s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateX(0) scale(1);
+  }
+  50% {
+    transform: translateY(-50px) translateX(30px) scale(1.2);
+  }
+}
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(250, 248, 248, 0.05);
+  backdrop-filter: blur(25px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo img {
+  height: 48px;
+  width: 48px;
+  object-fit: contain;
+  border-radius: 10%; /* optional: for circular logo */
+}
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  color: #0ec4f2;
+}
+
+.logo-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.logo-title {
+  font-size: 1rem;
+  opacity: 2;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #080505;
+  transition: color 0.3s;
+}
+.nav-links a:hover {
+  color: #1212d4;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.hero .title,
+.hero .subtitle {
+  position: relative;
+  z-index: 1;
+}
+/* Sections */
+.section {
+  padding: 4rem 2rem;
+  max-width: 960px;
+  margin: auto;
+}
+
+/* Projects */
+.projects .project-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+.project-card {
+  background: #403d7d;
+  padding: 2rem;
+  flex: 1 1 calc(33% - 2rem);
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+.project-card:hover {
+  transform: translateY(-10px);
+  background: #86d5fa;
+}
+
+/* Contact */
+.contact a {
+  color: #2b11f4;
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: #0b0b0b;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .project-card {
+    flex: 1 1 100%;
+  }
+  .title {
+    font-size: 2rem;
+  }
+}
